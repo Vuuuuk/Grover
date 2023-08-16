@@ -1,0 +1,228 @@
+﻿@using Grover.Models
+
+<!DOCTYPE html>
+<html style="height: 100%">
+
+@{
+
+    <!-- INIT -->
+
+    User user = (User)HttpContext.Current.Session["user"];
+
+    <!-- INIT -->
+
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Update your info</title>
+    <link href="https://i.ibb.co/CmhVybS/favicon-32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/CSS/master.css">
+    <link rel="stylesheet" href="~/Content/CSS/login_register.css">
+</head>
+
+<body style="min-height: 100%; display: flex; flex-direction: column">
+
+    @{
+        if (user != null && user.Type.Equals(UserType.KORISNIK))
+        {
+            <!-- HEADER KORISNIK -->
+
+            <header id="header">
+                <nav class="navbar container">
+                    <a href="~/Home/Index">
+                        <img src="~/Content/Images/chownow_logo.png" alt="ChowNow's logo" class="logo-image" />
+                    </a>
+                    <button type="button" class="menu-toggler">
+                        <i class="ri-menu-line toggle-icon open-menu-icon"></i>
+                        <i class="ri-close-line toggle-icon close-menu-icon"></i>
+                    </button>
+                    <div class="collapsible-menu">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="~/Home/Index" class="list-link">Home</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Profile/Index" class="list-link current-link">Profile</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/History/Index" class="list-link">Order History</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Login/SignOut" class="list-link">Sign out</a>
+                            </li>
+                        </ul>
+                        <img style="border-radius: 7.5rem" width="115" onerror="this.src ='..//Content//Images//default_avatar.svg'" src=@user.Image>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- HEADER KORISNIK -->
+        }
+        else if (user != null && user.Type.Equals(UserType.DOSTAVLJAC))
+        {
+            <!-- HEADER DOSTAVLJAC -->
+
+            <header id="header">
+                <nav class="navbar container">
+                    <a href="~/Home/Index">
+                        <img src="~/Content/Images/chownow_logo.png" alt="ChowNow's logo" class="logo-image" />
+                    </a>
+                    <button type="button" class="menu-toggler">
+                        <i class="ri-menu-line toggle-icon open-menu-icon"></i>
+                        <i class="ri-close-line toggle-icon close-menu-icon"></i>
+                    </button>
+                    <div class="collapsible-menu">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="~/Home/Index" class="list-link">Home</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Profile/Index" class="list-link current-link">Profile</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="" class="list-link">Available Deliveries</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="" class="list-link">Active Deliveries</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/History/Index" class="list-link">History</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Login/SignOut" class="list-link">Sign out</a>
+                            </li>
+                        </ul>
+                        <img style="border-radius: 7.5rem" width="115" onerror="this.src ='..//Content//Images//default_avatar.svg'" src=@user.Image>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- HEADER DOSTAVLJAC -->
+        }
+
+        else if (user != null && user.Type.Equals(UserType.ADMIN))
+        {
+            <!-- HEADER ADMIN -->
+
+            <header id="header">
+                <nav class="navbar container">
+                    <a href="~/Home/Index">
+                        <img src="~/Content/Images/chownow_logo.png" alt="ChowNow's logo" class="logo-image" />
+                    </a>
+                    <button type="button" class="menu-toggler">
+                        <i class="ri-menu-line toggle-icon open-menu-icon"></i>
+                        <i class="ri-close-line toggle-icon close-menu-icon"></i>
+                    </button>
+                    <div class="collapsible-menu">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="~/Home/Index" class="list-link">Home</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Profile/Index" class="list-link current-link">Profile</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Employee/Index" class="list-link">Employees</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Product/AddProduct" class="list-link">Products</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/History/Index" class="list-link">History</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="~/Login/SignOut" class="list-link">Sign out</a>
+                            </li>
+                        </ul>
+                        <img style="border-radius: 7.5rem" width="115" onerror="this.src ='..//Content//Images//default_avatar.svg'" src=@user.Image>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- HEADER ADMIN-->
+        }
+    }
+
+    <!-- USER INFO -->
+
+    <section class="why-choose-us-login">
+        <div class="why-choose-us-login-container container d-grid">
+            <div class="image-content-group">
+                <img src="~/Content/Images/profile.svg"/>
+            </div>
+            <div class="text-content-group">
+                <div class="section-metadata">
+                    <h2 class="title section-title">Profile info</h2>
+                    @{
+                        if (ViewBag.error != null)
+                        {
+                            <p style="color:#69A6AD">@ViewBag.error</p>
+                        }
+                        else
+                        {
+                            <p>
+                                Update your profile info with ease.
+                            </p>
+                        }
+                    }
+                </div>
+                <form action="~/Profile/EditProfile" method="post">
+
+                    <div class="form-group-register">
+                        <input type="text" name="OldUsername" value="@user.Username" hidden>
+                        <input type="text" placeholder="Username" name="Username" value="@user.Username" required>
+                        <input type="email" placeholder="Email" name="Email" value="@user.Email" required>
+                    </div>
+                    <div class="form-group-register">
+                        <input type="password" placeholder="New Password" name="Password">
+                        <input type="password" placeholder="Confirm Password" name="ConfirmPassword">
+                    </div>
+                    <div class="form-group-register">
+                        <input type="text" placeholder="Name" name="FirstName" value="@user.FirstName" required>
+                        <input type="text" placeholder="Surname" name="LastName" value="@user.LastName" required>
+                    </div>
+                    <div class="form-group-register">
+                        <input type="text" placeholder="Address" name="Address" value="@user.Address" required>
+                        <input style=" text-align:left;" list="UserType" name="Type" placeholder="Account Type" value="@user.Type.ToString()" required readonly />
+                    </div>
+
+                    <input type="submit" value="Save Profile" class="button" style="margin-top: 1.25rem">
+
+                    <div class="button" style="margin-left: 0.25rem; margin-top: -1.75rem">
+                        <label class="custom-file-upload">
+                            <input style="display:none" type="file" id="profilePicture" name="profilePicture">
+                            Change Picture
+                        </label>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- USER INFO -->
+    <!-- FOOTER -->
+
+    <footer id="footer" style="margin-top: 50px">
+        <div class="container">
+            <div class="footer-bottom-data">
+                <span class="copyright-information">&copy;ChowNow 2022. All Rights Reserved.</span>
+                <div class="legal-information">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER -->
+
+    <script src="~/Scripts/master.js"></script>
+
+</body>
+
+</html>

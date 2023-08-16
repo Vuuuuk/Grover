@@ -1,0 +1,66 @@
+﻿.why-choose-us-login {
+    margin: auto auto;
+}
+
+.why-choose-us-login p{
+    margin-bottom: 1.25rem;
+}
+
+section:not(.hero) .text-content-group {
+    margin: 8rem 0 2rem;
+}
+
+section:not(.hero) .button {
+    margin: 5rem 0 2rem;
+}
+
+.form-group {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 15px 15px;
+    border-bottom: none;
+    position: relative;
+    background: #F2F2F2;
+}
+
+.form-group-register {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 15px 15px;
+    border-bottom: none;
+    position: relative;
+    background: #F2F2F2;
+}
+
+
+.form-group-register input[type=date] {
+    margin-right: 65px;
+    color: #757575;
+}
+
+select[name^=closing_date] {
+    width: 35%;
+    background-color: #F2F2F2;
+    font-size: 1.75rem;
+    border: none;
+    margin-right: 75px;
+    color: #757575;
+}
+
+@media screen and (min-width: 992px) {
+    .why-choose-us-login-container {
+        grid-template-columns: repeat(14, 1fr);
+        column-gap: 6.75rem;
+    }
+
+    .why-choose-us-login .image-content-group {
+        grid-column: span 7;
+    }
+
+    .why-choose-us-login .text-content-group {
+        grid-column: span 6;
+    }
+
+}
+
+/*WHY CHOOSE US*/

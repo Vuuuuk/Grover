@@ -1,0 +1,11 @@
+User({User_ID,Username,Password,Email,User_Type,First_Name,Last_Name,Birth_Date,Address,Image,Enabled},{User_ID})
+
+Order({Order_ID,Total_Price,Ammount,Comment,Delivery_Address,Status,User_ID},{Order_ID})
+Order[User_ID] pod User[User_ID]
+Null(Order,User_ID) = false
+
+Product({Product_ID,Product_Name,Price,Ingredients},{Product_ID})
+
+Contains({OrderID,Product_ID},{Order_ID+Product_ID})
+Contains[Order_ID] pod Order[Order_ID]
+Contains[Product_ID] pod Product[Product_ID]
